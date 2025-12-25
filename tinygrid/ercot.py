@@ -1729,12 +1729,34 @@ class ERCOT(BaseISOClient):
     def get_lmp_electrical_bus(self, **kwargs: Any) -> dict[str, Any]:
         """Get LMP (Locational Marginal Price) for electrical bus.
 
+        Args:
+            **kwargs: Query parameters including:
+                - sced_timestamp_from: Start timestamp for SCED data
+                - sced_timestamp_to: End timestamp for SCED data
+                - electrical_bus: Electrical bus identifier (e.g., "0001")
+                - repeat_hour_flag: Repeat hour flag (boolean)
+                - lmp_from: Minimum LMP value
+                - lmp_to: Maximum LMP value
+                - page: Page number for pagination
+                - size: Page size for pagination
+                - sort: Sort field
+                - dir_: Sort direction
+
         Returns:
             Dictionary containing LMP electrical bus data
 
         Raises:
             GridAPIError: If the API request fails
             GridTimeoutError: If the request times out
+
+        Example:
+            ```python
+            ercot = ERCOT()
+            lmp_data = ercot.get_lmp_electrical_bus(
+                electrical_bus="0001",
+                sced_timestamp_from="2025-12-25"
+            )
+            ```
         """
         return self._call_endpoint(lmp_electrical_bus, "get_lmp_electrical_bus", **kwargs)
 
