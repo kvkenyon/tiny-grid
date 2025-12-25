@@ -1,16 +1,15 @@
 """ERCOT Bus and Hub Mappings"""
 
 from tinygrid.bus.ercot import (
-    ELECTRICAL_BUSES,
     ELECTRICAL_BUS_TO_HUB,
     ELECTRICAL_BUS_TO_HUB_BUS,
-    ERCOTElectricalBus,
+    ELECTRICAL_BUSES,
     HUB_BUS_NAMES,
     HUB_BUS_TO_ELECTRICAL_BUSES,
     HUB_BUS_TO_HUB,
-    HUBS,
     HUB_TO_ELECTRICAL_BUSES,
     HUB_TO_HUB_BUS_NAMES,
+    HUBS,
     get_electrical_buses_for_hub,
     get_electrical_buses_for_hub_bus,
     get_hub_bus_for_electrical_bus,
@@ -19,7 +18,6 @@ from tinygrid.bus.ercot import (
 )
 
 __all__ = [
-    "ERCOTElectricalBus",
     "ELECTRICAL_BUSES",
     "HUB_BUS_NAMES",
     "HUBS",
