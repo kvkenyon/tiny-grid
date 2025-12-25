@@ -69,12 +69,22 @@ def main():
 
     print("Setting up ERCOT authentication...")
 
+    username = os.getenv("ERCOT_USERNAME")
+    password = os.getenv("ERCOT_PASSWORD")
+    api_key = os.getenv("ERCOT_SUBSCRIPTION_KEY")
+
+    if not username:
+        print("No username")
+        return
+    if not password:
+        print("No password")
+        return
+    if not api_key:
+        print("No subscription key")
+        return
+
     # Create authentication configuration from environment variables
-    auth_config = ERCOTAuthConfig(
-        username=os.getenv("ERCOT_USERNAME"),
-        password=os.getenv("ERCOT_PASSWORD"),
-        subscription_key=os.getenv("ERCOT_SUBSCRIPTION_KEY"),
-    )
+    auth_config = ERCOTAuthConfig(username=username, password=password, subscription_key=api_key)
 
     # Create authentication handler
     auth = ERCOTAuth(auth_config)

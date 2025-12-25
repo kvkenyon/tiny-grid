@@ -22,3 +22,4 @@ dmypy.json
 
 /coverage.xml
 /.coverage
+.DS_Store
